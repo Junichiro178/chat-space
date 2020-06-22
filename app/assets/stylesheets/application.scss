@@ -2,8 +2,10 @@
 @import "modules/messages";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "variables";
 @import "side-bar";
 @import "chat-main";
+
 
 .wrapper{
   display: flex;
