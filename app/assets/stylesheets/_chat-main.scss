@@ -1,0 +1,101 @@
+.chat-main{
+  width: calc(100vw - 300px);
+  &__group-info{
+    height: 100px;
+    border-bottom: 1px solid #eeeeee;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    
+    .left-info{
+      margin-left: $outer_frame;
+      &__name{
+        color: $light_black;
+        padding-top: 35px;
+        font-size: 20px;
+      }
+      &__members{
+        color: $gray;
+        padding-top: 15px;
+        font-size: 12px;
+      }
+    }
+    .right-info{
+      margin-right: $outer_frame;
+      height: 40px;
+      width: 72px;
+      text-align: center;
+      border: 1px solid $sky_blue;
+      margin-top: 28px;
+      &__edit{
+        line-height: 40px;
+        font-size: 16px;
+        padding: 0 20px;
+        .edit-btn{
+          text-decoration: none;
+          color: $sky_blue;
+        }
+      }
+    }
+  }
+  &__message-list{
+    height: calc(100vh - 100px - 90px);
+    background-color: #fafafa;
+    .message{
+      padding: 35px 0 46px;
+      margin-left: $outer_frame;
+      &__info{
+        display: flex;
+        margin-bottom: 12px;
+        .user-name{
+          color: $light_black;
+          font-size: 16px;
+          font-weight: bold;
+          margin-right: 10px;
+        }
+        .date{
+          color: $gray;
+          font-size: 12px;
+        }
+      }
+      &__text{
+        color: #434a54;
+        font-size: 14px;
+      }
+    }
+  }
+  &__message-form{
+    height: 90px;
+    background-color: #d2d2d2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: $outer_frame;
+    .form-box{
+      width: calc(100% - 155px);
+      display: flex;
+      position: relative;
+      &__text{
+        width: 100%;
+        height: 50px;
+        padding: 0 40px 0 10px;
+        border: none;
+      }
+      &__image{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        &__file{
+          display: none;
+        }
+      }
+    }
+    .submit-btn{
+      height: 50px;
+      width: 100px;
+      margin: 0 40px 0 15px;
+      color: white;
+      background-color: $sky_blue;
+    }
+  }
+}
