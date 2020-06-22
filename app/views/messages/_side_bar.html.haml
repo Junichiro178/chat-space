@@ -1,0 +1,27 @@
+.side-bar
+  .side-bar__user-name
+    .top-items
+      .top-items__user-name
+        Junichiro
+      .top-items__icons
+        = link_to "#" , class: "icon-btn" do
+          = icon('far', 'edit', class: 'icon icon-edit')
+          %span<>
+          = icon('fa', 'cog', class: 'icon icon-gear')
+
+  .side-bar__group-list
+    .group
+      .group__name
+        Jun Private
+      .group__message-log
+        Hello Open World! 
+    .group
+      .group__name
+        Jun Business
+      .group__message-log
+        How is the project going?
+    .group
+      .group__name
+        Jun Family
+      .group__message-log
+        I'm done! On my way to home!
