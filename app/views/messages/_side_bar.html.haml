@@ -4,25 +4,16 @@
       .top-items__user-name
         = current_user.name
       .top-items__icons
-        = link_to "#" , class: "icon-btn" do
+        = link_to  new_group_path, class: "icon-btn" do
           = icon('far', 'edit', class: 'icon icon-edit')
           %span<>
         = link_to edit_user_path(current_user) ,class: "icon-btn" do
           = icon('fa', 'cog', class: 'icon icon-gear')
 
   .side-bar__group-list
-    .group
-      .group__name
-        Jun Private
-      .group__message-log
-        Hello Open World! 
-    .group
-      .group__name
-        Jun Business
-      .group__message-log
-        How is the project going?
-    .group
-      .group__name
-        Jun Family
-      .group__message-log
-        I'm done! On my way to home!
+    - current_user.groups.each do |group|
+      .group
+        .group__name
+          = group.name
+        .group__message-log
+          メッセージはまだありません
