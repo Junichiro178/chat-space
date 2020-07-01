@@ -2,47 +2,25 @@
   .chat-main__group-info
     .left-info
       .left-info__name
-        Jun Private
+        = @group.name
       .left-info__members
-        Member : Junichiro
+        Members : 
+        - @group.users.each do |user|
+          = user.name
     .right-info
       .right-info__edit
-        = link_to "#", class: "edit-btn" do
+        = link_to edit_group_path(@group), class: "edit-btn" do
           Edit
 
   .chat-main__message-list
-    .message
-      .message__info
-        .user-name
-          Junichiro
-        .date
-          2020/06/20(Sat) 15:23:06
-      .message__text
-        This is the first message!
+    = render @messages
 
-    .message
-      .message__info
-        .user-name
-          Junichiro
-        .date
-          2020/06/20(Sat) 15:23:06
-      .message__text
-        Second message!
-
-    .message
-      .message__info
-        .user-name
-          Junichiro
-        .date
-          2020/06/20(Sat) 15:23:06
-      .message__text
-        Third message!
-
-  %form.chat-main__message-form
-    .form-box
-      %input{type: "text", class: "form-box__text", placeholder: "type a message"}
-      %label{class: "form-box__image"}
-        = icon('fas', 'image')
-        %input{type:"file", class: "form-box__image__file"}
-
-    %input{type: "submit", class: "submit-btn", value: "Send"}
+  .chat-main__message-form
+    = form_for [@group, @message],class: 'form' do |f|
+      .form-box
+        = f.text_field :content, class: 'form-box__text', placeholder: 'type a message'
+        .form-box__mask
+          = f.label :image, class: 'form-box__mask__image' do
+            = icon('fas', 'image')
+            = f.file_field :image, class: 'form-box__mask__image__file'
+      = f.submit 'Send', class: 'submit-btn'
