@@ -40,6 +40,10 @@
       margin: 0 20px;
       color: #ffffff;
       padding: 20px 0 40px;
+      .group-name{
+        text-decoration: none;
+        color: $white;
+      }
       &__name{
         font-size: 15px;
         margin-bottom: 5px;
