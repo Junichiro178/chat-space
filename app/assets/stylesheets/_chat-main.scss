@@ -42,6 +42,7 @@
   &__message-list{
     height: calc(100vh - 100px - 90px);
     background-color: #fafafa;
+    overflow: scroll;
     .message{
       padding: 35px 0 46px;
       margin-left: $outer_frame;
