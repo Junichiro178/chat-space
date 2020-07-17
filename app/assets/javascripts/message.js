@@ -1,8 +1,9 @@
 $(function(){
+
   function buildHTML(message) {
   if (message.image) {
     var html = 
-    `<div class="message">
+    `<div class="message" data-message-id=${message.id}>
       <div class="message__info">
         <div class="user-name">
           ${message.user_name}
@@ -19,7 +20,7 @@ $(function(){
     return html;
   } else {
     var html = 
-    `<div class="message">
+    `<div class="message" data-message-id=${message.id}>
       <div class="message__info">
         <div class="user-name">
           ${message.user_name}
@@ -60,4 +61,25 @@ $(function(){
       $('.submit-btn').prop('disabled', false);
     });
   })
+
+  var reloadMessages = function() {
+    var lasr_message_id = $('.message:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: "GET",
+      dataType: "json",
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+      $.each(messages, function(i, message) {
+        insertHTML += buildHTML(message)
+      });
+      $('.messages').append(insertHTML);
+    })
+    .fail(function() {
+      alert('error');
+    })
+    setInterval(reloadMessages, 7000);
+  };
 });
