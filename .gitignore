@@ -19,5 +19,5 @@
 pubilic/uploads/*
 
 public/uploads/*
-
+config/secrets.yml
 
